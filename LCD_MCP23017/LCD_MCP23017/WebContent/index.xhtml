@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+     <h:head>
+ 
+     </h:head>
+ 
+     <h:body>
+ 		<h:form id="panelform">
+		    <p:panel  header="MCP3008" style="margin-bottom:10px;">
+		        <p:messages id="messages" />
+		        <h:panelGrid columns="2" cellpadding="5">
+		        
+		            <h:outputLabel for="x" value="X axis:" />
+		            <p:inputText id="x"  value="#{start.raspberry.readMCP3008.x_axis}"/>
+		 			
+		 			<h:outputLabel for="y" value="Y axis:" />
+		            <p:inputText id="y" value="#{start.raspberry.readMCP3008.y_axis}"/>
+		            
+		            <h:outputLabel for="errorSPI" value="Error message SPI:" />
+		            <p:inputText id="errorSPI" value="#{start.raspberry.errorMessage}" />
+		            
+		            <h:outputLabel for="errorSPIRead" value="Error message SPI read:" />
+		            <p:inputText id="errorSPIRead" value="#{start.raspberry.writeMCP3008.errorMessage}"/>
+		            
+		        </h:panelGrid>
+		    </p:panel>
+		    
+		    <p:poll update="panelform" interval="0" listener="#{start.raspberry.writeMCP3008.write}"/>
+			<p:poll update="panelform" interval="0" listener="#{start.raspberry.readMCP3008.read}"/>
+			<p:poll update="panelform" interval="0" listener="#{start.raspberry.writeMCP23017.write}"/>
+	
+		</h:form>
+ 
+     </h:body>
+</html>

@@ -85,3 +85,84 @@ GNU Octave
 Java 
 
 ![a](https://github.com/DanielMartensson/Java-Applications/blob/master/JavaOctave/Markering_014.png)
+
+# Embedded Systems with Java 
+
+What is this? This is a collection of embedded systems by using Java programming language using www.Pi4J.com library and Java Server Faces. Combining Pi4J with web applications is a really IoT-thing. Those examples here are easy to use and very basic. So you can download all of them and play around with them to learn how to IoT every day!
+
+# Blink with LED and counter - Raspberry Pi
+This is a web application who are installed on Raspberry Pi. This web application can turn on a LED lamp by pressing on a button
+on the web application and also the web application have a counter, connected to a real physical button.
+
+What you need to do is to connet a LED to GPIO_01 and GND and connect a button between GPIO_16 and GND. Then install Tomcat 8 on
+the Raspberry Pi and OpenJDK 8. Download the BlinkLED.zip file and insert the BlinkLED.war file from the zip-file to Tomcat's webapps
+folder. Start Tomcat and then press the buttons.
+
+This web application has been done with:
+* Java Server Faces 2.2 (Integrated in the project)
+* Primefaces 6.2 (Integrated in the project)
+* Tomcat 8 (Need to be installed on Raspberry Pi)
+* OpenJDK 8 (Need to be installed on Raspberry Pi)
+* Eclipse IDE SimRel (Need to be installed on a better computer than Raspberry Pi)
+* Pi4J (Integrated in the project)
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/BlinkLED/Selection_001.png)
+
+# Control analog to digital reader MCP3008
+This is another web application who using MCP3008 and MCP9700A temperature sensor. Connect MCP9700A to channel 0 at MCP3008 and CS0 to MCP3008 CS input. 
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/TemperatureReader/Selection_002.png)
+
+
+# Control digital potentiometer MCP41010
+This project can control the ligth of a LED lamp. Also this has a shutdown function too. Drag the slider from 0 to 255. 255 = Full LED power, 0 = no power for the LED.
+Connect the following:
+MCP41010 - Raspberry Pi
+* VDD = 3.3 VDC
+* PB0 = Ground together with LED's ground pin
+* PW0 = LED's positive pin
+* PA0 = 3.3 VDC 
+* CS = GPIO 10
+* SCK = GPIO 14
+* SI = GPIO 12
+* Vss = Ground
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/FadingLED/Selection_004.png)
+
+# Button and LED for MCP23017 with I2C communication
+This project is a smal test project for the MCP23017 IO expander IC. Connect it with your Raspberry Pi's i2c connection pins and then run the Run MCP23017.jar file. It's a console application. 
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/Test%20MCP23017/image.png)
+
+# Joystick and MCP3008 and MCP23017 and 16x2 LCD
+Take a LCD 16x2 and connect D7->D0 from the LCD to the MCP23017 GPIOA7->GPIOA0.
+Then connect the RS, R/W and E to GPIOB0, GPIOB1 AND GPIOB2.
+Also connect the MCP3008 and a joystick to channel 0 and channel 1. Done! The SPI and i2c connection is like it should be.
+
+Internet:
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/LCD_MCP23017/Selection_005.png)
+
+LCD:
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/LCD_MCP23017/realPicture.jpg)
+
+# Joystick and MCP3008 and MCP23017 and 16x2 LCD with steper motor driver ULN2003
+This is an extension of the past project. This project does not use Java Server Faces and Primefaces. This project is a executable jar file named JoystickStepperLCD.jar. Very simple code so it will be easy for you to play around with it.
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/JoystickStepperLCD/realPicture.jpg)
+
+# Temperature logger online
+This is a bussnies project where a customer order a IoT solution. The temperature logger can logg values in different sampling rate, send values to database and also other people(with access) can also view the graf in real time. It's connected to 5 temperature sensors. 
+
+Everything can be fitted into your pocket.
+
+My mobile phone:
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/TemperatureLoggerOnline/received_541593202992519.png?raw=true)
+
+The unit:
+
+![](https://github.com/DanielMartensson/Java-Applications/blob/master/TemperatureLoggerOnline/received_354894848396581.jpeg?raw=true)
+
+This unit can be purchased at https://www.spektrakon.se/

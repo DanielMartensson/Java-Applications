@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+     
+    <h:head>
+    	
+    </h:head>
+ 
+    <h:body>
+        <h:form>
+        	<p:growl id="msgs" />
+        	
+        	<p:selectBooleanButton onLabel="ON" offLabel="OFF" style="width:100px" >
+        		<p:ajax update="msgs" listener="#{start.button.state}"/>
+        	</p:selectBooleanButton>
+    	</h:form>
+    	
+    	<h:form>
+		    <h:panelGrid columns="2" cellpadding="5">
+		        <h:outputText value="Counter: " />
+		        <h:outputText id="output" value="#{start.counter.number}" />
+		    </h:panelGrid>
+		 
+		    <p:commandButton value="Reset" actionListener="#{start.counter.reset}" update="output" />
+		    <p:poll interval="1"  update="output" />
+		</h:form>
+		 
+    </h:body>
+</html>

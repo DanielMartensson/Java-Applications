@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<h3 style="margin-top: 0">MCP41010</h3>
+			<h:panelGrid columns="1" style="margin-bottom: 10px">
+		        <p:inputText id="val" value="#{slider.dac}" />
+		        <p:slider for="val" minValue="0" maxValue="255" step="1">
+		            <p:ajax event="slideEnd" listener="#{slider.onSlideEnd}" />
+		        </p:slider>
+		    </h:panelGrid>
+		</h:form>
+		
+		<h:form>
+			<p:inputSwitch value="#{slider.status}">
+				<p:ajax listener="#{slider.callResistans}"/>
+			</p:inputSwitch>
+		</h:form>
+	
+	</h:body>
+</html>
