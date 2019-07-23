@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="659.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Windows.PlotWindow">
+  <tabs>
+    <Tab text="Area/Line/Scatter">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="640.0">
+               <children>
+                  <TextField fx:id="axsisXcolumnName" editable="false" layoutX="175.0" layoutY="14.0" prefHeight="26.0" prefWidth="280.0" />
+                  <TextField fx:id="axsisYcolumnName" editable="false" layoutX="175.0" layoutY="49.0" prefHeight="26.0" prefWidth="280.0" />
+                  <Label layoutX="14.0" layoutY="92.0" text="From row:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="spinnerFromRow" editable="true" layoutX="101.0" layoutY="90.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Label layoutX="249.0" layoutY="93.0" text="To row:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="spinnerToRow" editable="true" layoutX="314.0" layoutY="90.0" prefHeight="26.0" prefWidth="140.0" />
+                  <ToggleButton fx:id="toggleSelectXaxis" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="Select X-axis column" />
+                  <ToggleButton fx:id="toggleSelectYaxis" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="Select Y-axis column" />
+                  <TextField layoutX="101.0" layoutY="126.0" prefHeight="26.0" prefWidth="140.0" fx:id="xLabelTextField" />
+                  <Label layoutX="14.0" layoutY="128.0" text="X-Label:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="yLabelTextField" layoutX="314.0" layoutY="127.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Label layoutX="247.0" layoutY="129.0" text="Y-Label:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="titleTextField" layoutX="101.0" layoutY="163.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Label layoutX="14.0" layoutY="166.0" text="Title:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="247.0" layoutY="166.0" text="Legend:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="legendTextField" layoutX="314.0" layoutY="164.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#creatChartButton" prefHeight="31.0" prefWidth="135.0" text="Create chart">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="519.0" layoutY="18.0" prefHeight="82.0" prefWidth="130.0" spacing="10.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" selected="true" text="Area chart">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Line chart" toggleGroup="$radioToggleGroup" />
+                        <RadioButton mnemonicParsing="false" text="Scatter chart" toggleGroup="$radioToggleGroup" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="470.0" layoutY="17.0" text="Plots:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="gridONcheck" layoutX="167.0" layoutY="205.0" mnemonicParsing="false" text="Grid ON">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <ListView fx:id="listView" layoutX="469.0" layoutY="109.0" prefHeight="127.0" prefWidth="180.0" />
+                  <Button layoutX="263.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveChart" prefHeight="31.0" prefWidth="89.0" text="Save">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="371.0" layoutY="200.0" mnemonicParsing="false" onAction="#deleteChart" prefHeight="31.0" prefWidth="82.0" text="Delete">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Bar/Hist/Pie">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ToggleButton fx:id="toggleSelectColumn" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="Select column" />
+                  <TextField fx:id="axsisYcolumnName2" editable="false" layoutX="175.0" layoutY="14.0" prefHeight="26.0" prefWidth="280.0" />
+                  <Spinner fx:id="spinnerFromRow2" editable="true" layoutX="101.0" layoutY="90.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Spinner fx:id="spinnerToRow2" editable="true" layoutX="314.0" layoutY="90.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Label layoutX="14.0" layoutY="92.0" text="From row:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="249.0" layoutY="93.0" text="To row:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="128.0" text="X-Label:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="166.0" text="Title:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="101.0" layoutY="126.0" prefHeight="26.0" prefWidth="140.0" fx:id="xLabelTextField2" />
+                  <TextField fx:id="yLabelTextField2" layoutX="314.0" layoutY="127.0" prefHeight="26.0" prefWidth="140.0" />
+                  <TextField fx:id="titleTextField2" layoutX="101.0" layoutY="163.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Label layoutX="247.0" layoutY="166.0" text="Legend:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="legendTextField2" layoutX="314.0" layoutY="164.0" prefHeight="26.0" prefWidth="140.0" />
+                  <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#creatChartButton2" prefHeight="31.0" prefWidth="135.0" text="Create chart">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="519.0" layoutY="18.0" prefHeight="84.0" prefWidth="130.0" spacing="10.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" selected="true" text="Bar chart">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioToggleGroup2" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Hist chart" toggleGroup="$radioToggleGroup2" />
+                        <RadioButton mnemonicParsing="false" text="Pie chart" toggleGroup="$radioToggleGroup2" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="263.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveChart2" prefHeight="31.0" prefWidth="89.0" text="Save">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="371.0" layoutY="200.0" mnemonicParsing="false" onAction="#deleteChart2" prefHeight="31.0" prefWidth="82.0" text="Delete">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="gridONcheck2" layoutX="167.0" layoutY="205.0" mnemonicParsing="false" text="Grid ON">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <Label layoutX="247.0" layoutY="129.0" text="Y-Label:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="470.0" layoutY="17.0" text="Plots:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listView2" layoutX="469.0" layoutY="109.0" prefHeight="127.0" prefWidth="180.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

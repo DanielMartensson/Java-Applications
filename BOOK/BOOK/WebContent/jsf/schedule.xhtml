@@ -1,0 +1,119 @@
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="../css/scheduleStyle.css"></link>
+</h:head>
+
+<h:body>
+	
+	<f:metadata>
+	   <f:viewAction action="#{controller.scheduleView.loadEvents}" onPostBack="true"/>
+	</f:metadata>
+
+	<h:form id = "messages">
+		<p:growl id="messages" showDetail="true" />
+		<h:panelGrid columnClasses="value" styleClass="schedule">
+		 <h:graphicImage value="../pictures/spektrakon_logo.png" styleClass="title"/> 
+		 <p:outputLabel styleClass="konferans">Konferansrumsbokning</p:outputLabel>
+			<p:schedule id="scheduleLocale"
+				value="#{controller.scheduleView.eventModel}" locale="sv_SV"
+				widgetVar="myschedule" timeZone="GMT+2" axisFormat="HH">
+
+				<p:ajax event="dateSelect"
+					listener="#{controller.scheduleView.onDateSelect}"
+					update="eventDetails" oncomplete="PF('eventDialog').show();" />
+				<p:ajax event="eventSelect"
+					listener="#{controller.scheduleView.onEventSelect}"
+					update="eventDetails" oncomplete="PF('eventDialog').show();" />
+				<p:ajax event="eventMove"
+					listener="#{controller.scheduleView.onEventMove}" 
+					update="messages" />
+				<p:ajax event="eventResize"
+					listener="#{controller.scheduleView.onEventResize}"
+					update="messages" />
+				
+			</p:schedule>
+
+
+		</h:panelGrid>
+
+		<p:dialog widgetVar="eventDialog" header="Här skapar du ett NYTT möte eller radera befintligt:"
+			showEffect="clip" hideEffect="clip">
+			<h:panelGrid id="eventDetails" columns="2">
+				<p:outputLabel for="title" value="Titel:" />
+				<p:inputText id="title"
+					value="#{controller.scheduleView.event.title}" required="true" />
+
+				<p:outputLabel for="from" value="Från:" />
+				<p:calendar id="from"
+					value="#{controller.scheduleView.event.startDate}" timeZone="GMT+2"
+					pattern="dd/MM/yyyy HH:mm" locale="sv_SV"/>
+
+				<p:outputLabel for="to" value="Till:" />
+				<p:calendar id="to" value="#{controller.scheduleView.event.endDate}"
+					timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm" locale="sv_SV"/>
+
+				<p:commandButton type="reset" value="Nollställ" />
+				
+				<h:panelGrid id="columns_Spara_Radera" columns="2">
+					<p:commandButton id="addButton" value="Skapa nytt"
+						actionListener="#{controller.scheduleView.addEvent}"
+						oncomplete="PF('myschedule').update();PF('eventDialog').hide();" >
+						
+					</p:commandButton>
+						
+					<p:commandButton type="delete" value="Radera möte" 
+						actionListener="#{controller.scheduleView.deleteEvent}"
+						oncomplete="PF('myschedule').update();PF('eventDialog').hide();">
+					</p:commandButton>
+				</h:panelGrid>
+				
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+
+	<script type="text/javascript">
+		PrimeFaces.locales['sv_SV'] = {
+			closeText : 'Stäng',
+			prevText : 'Föregående',
+			nextText : 'Nästa',
+			monthNames : [ 'januari', 'februari', 'mars', 'april', 'maj',
+					'juni', 'juli', 'augusti', 'september', 'oktober',
+					'november', 'december' ],
+			monthNamesShort : [ 'jan', 'feb', 'mar', 'apr', 'maj', 'jun',
+					'jul', 'aug', 'sep', 'okt', 'nov', 'dec' ],
+			dayNames : [ 'söndag', 'måndag', 'tisdag', 'onsdag', 'torsdag',
+					'fredag', 'lördag' ],
+			dayNamesShort : [ 'sön', 'mån', 'tis', 'ons', 'tor', 'fre', 'lör' ],
+			dayNamesMin : [ 'sö', 'må', 'ti', 'on', 'to', 'fr', 'lö' ],
+			weekHeader : 'Vecka',
+			firstDay : 1,
+			isRTL : false,
+			showMonthAfterYear : false,
+			yearSuffix : '',
+			timeOnlyTitle : 'Endast tid',
+			timeText : 'Tid',
+			hourText : 'timmar',
+			minuteText : 'minuter',
+			secondText : 'sekunder',
+			currentText : 'Nuvarande datum',
+			ampm : false,
+			month : 'månad',
+			week : 'vecka',
+			day : 'dag',
+			allDayText : 'Hela dagen'
+		};
+	</script>
+	<style type="text/css">
+.value {
+	width: 1000px;
+}
+</style>
+</h:body>
+
+</html>

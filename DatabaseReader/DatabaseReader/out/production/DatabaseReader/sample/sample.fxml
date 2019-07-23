@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Sphere?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="559.0" prefWidth="723.0">
+         <children>
+            <Button layoutX="10.0" layoutY="209.0" mnemonicParsing="false" onAction="#connectToSQLserverButton" prefHeight="25.0" prefWidth="232.0" text="Connect SQL server or update table" AnchorPane.bottomAnchor="325.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="481.0" AnchorPane.topAnchor="209.0">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <TextField fx:id="serverIPtextField" layoutX="92.0" layoutY="38.0" prefHeight="26.0" prefWidth="137.0" promptText="192.168.1.1" AnchorPane.bottomAnchor="496.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="38.0" />
+            <TextField fx:id="databasenameTextField" layoutX="92.0" layoutY="137.0" prefHeight="26.0" prefWidth="137.0" promptText="database name" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="137.0" />
+            <TextField fx:id="passwordTextField" layoutX="92.0" layoutY="104.0" prefHeight="26.0" prefWidth="137.0" promptText="*******" AnchorPane.bottomAnchor="430.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="104.0" />
+            <Label layoutX="10.0" layoutY="42.0" prefHeight="18.0" prefWidth="68.0" text="Server IP:" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="645.0" AnchorPane.topAnchor="42.0" />
+            <Label layoutX="8.0" layoutY="74.0" prefHeight="18.0" prefWidth="74.0" text="Username:" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="641.0" AnchorPane.topAnchor="74.0" />
+            <Label layoutX="8.0" layoutY="108.0" prefHeight="18.0" prefWidth="74.0" text="Password:" AnchorPane.bottomAnchor="434.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="641.0" AnchorPane.topAnchor="108.0" />
+            <Label layoutX="8.0" layoutY="141.0" prefHeight="18.0" prefWidth="74.0" text="Database:" AnchorPane.bottomAnchor="401.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="641.0" AnchorPane.topAnchor="141.0" />
+            <TextField fx:id="usernameTextField" layoutX="92.0" layoutY="70.0" prefHeight="26.0" prefWidth="137.0" promptText="user name" AnchorPane.bottomAnchor="464.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="70.0" />
+            <TableView fx:id="databaseTableView" editable="true" layoutX="247.0" layoutY="37.0" onMouseClicked="#mouseClickedTableView" prefHeight="503.0" prefWidth="466.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+              <columns>
+                <TableColumn fx:id="employeeColumn" onEditCommit="#editedEmployeeColumn" prefWidth="75.0" text="Employee" />
+                <TableColumn fx:id="wageColumn" onEditCommit="#editedWageColumn" prefWidth="75.0" text="Wage" />
+                  <TableColumn fx:id="companyColumn" onEditCommit="#editedCompanyColumn" prefWidth="75.0" text="Company" />
+                  <TableColumn fx:id="ageColumn" onEditCommit="#editedAgeColumn" prefWidth="75.0" text="Age" />
+                  <TableColumn fx:id="on_vacationColumn" onEditCommit="#editedOn_vacationColumn" prefWidth="75.0" text="On vacation" />
+                  <TableColumn fx:id="experienceColumn" onEditCommit="#editedExperienceColumn" prefWidth="75.0" text="Experience" />
+              </columns>
+            </TableView>
+            <Sphere fx:id="connectedSphare" layoutX="177.0" layoutY="268.0" radius="20.0" />
+            <Label layoutX="12.0" layoutY="260.0" text="Connected to server:" />
+            <Button layoutX="16.0" layoutY="515.0" mnemonicParsing="false" onAction="#exitProgramButton" prefHeight="25.0" prefWidth="106.0" text="Exit program" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="601.0" AnchorPane.topAnchor="515.0" />
+            <Button layoutX="16.0" layoutY="481.0" mnemonicParsing="false" onAction="#deteteRowButton" prefHeight="25.0" prefWidth="106.0" text="Delete row" />
+            <Button layoutX="16.0" layoutY="446.0" mnemonicParsing="false" onAction="#addNewRowButton" prefHeight="25.0" prefWidth="106.0" text="New row" />
+            <TextField fx:id="tableNameTextField" layoutX="92.0" layoutY="174.0" prefHeight="26.0" prefWidth="137.0" promptText="table name" />
+            <Label layoutX="8.0" layoutY="178.0" prefHeight="17.0" prefWidth="53.0" text="Table:" />
+            <CheckBox fx:id="saveToCSVCheckBox" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" onAction="#saveToCSVCheckBoxOnAction" text="Save to CSV" />
+            <TextField fx:id="savePathCSVTextField" layoutX="14.0" layoutY="333.0" />
+            <Button fx:id="folderButton" layoutX="187.0" layoutY="333.0" mnemonicParsing="false" onAction="#folderButtonOnAction" prefHeight="25.0" prefWidth="59.0" text="Folder" />
+            <TextField fx:id="CSVFileNameTextField" layoutX="79.0" layoutY="366.0" prefHeight="26.0" prefWidth="106.0" />
+            <Label layoutX="11.0" layoutY="370.0" prefHeight="17.0" prefWidth="68.0" text="Filename:" />
+            <Label layoutX="185.0" layoutY="370.0" prefHeight="17.0" prefWidth="53.0" text=".csv" />
+            <Label layoutX="11.0" layoutY="400.0" prefHeight="17.0" prefWidth="68.0" text="Delimiter:" />
+            <TextField fx:id="delimiterTextField" layoutX="80.0" layoutY="396.0" prefHeight="25.0" prefWidth="22.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

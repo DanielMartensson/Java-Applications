@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<link type="text/css" rel="stylesheet" href="../css/tableStyle.css"></link>
+	</h:head>
+	
+	<h:body styleClass="background">
+	
+		<!-- Update the table/columns with the first table every time the page reloads -->
+		<f:metadata>
+			<f:event type="preRenderView"
+				listener="#{controller.data.tables.loadTables()}" />
+			<f:event type="preRenderView"
+				listener="#{controller.data.columns.update()}" />
+		</f:metadata>
+	
+		<!-- This is the view -->
+		<h:panelGrid columns="3" style="margin:10px 0">
+			
+			<h:form>
+			
+			<h:panelGrid id="columns_Spara_Radera" columns="6">
+			<!-- This will add a new row -->
+			<p:commandButton value="Add new row" styleClass="addButton">
+				<p:ajax listener="#{controller.data.columns.addRow()}" />
+				<!-- This update the whole page -->
+				<f:ajax render="@all"/>
+			</p:commandButton>
+	
+	
+			<!-- Every time we select a table, the data columns are going to update -->
+			<p:selectOneMenu value="#{controller.data.tables.selectedTable}" >
+				<p:ajax listener="#{controller.data.tables.loadTables()}" />
+				<p:ajax listener="#{controller.data.columns.update()}" />
+	
+				<!-- This update the whole page -->
+				<f:ajax render="@all"/>
+	
+				<f:selectItems value="#{controller.data.tables.dbTables}" />
+			</p:selectOneMenu>
+			
+			<!-- Logo -->
+			<h:graphicImage value="../pictures/spektrakon_logo.png"/> 
+			</h:panelGrid>
+		
+			<!-- This is the data table -->
+			<p:dataTable var="row" value="#{controller.data.columns.rowList}" resizableColumns="true" editable="true">
+				
+				<p:ajax event="rowEdit" listener="#{controller.data.columns.editRow(row)}"/>
+				
+				<p:columns var="columnNames" value="#{controller.data.columns.columnList}" columnIndexVar="colIndex" sortBy="#{row[colIndex]}">
+					
+					<f:facet name="header">
+						<h:outputText value="#{columnNames}" />
+					</f:facet>
+					
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{row[colIndex]}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{row[colIndex]}" />
+						</f:facet>
+					</p:cellEditor>
+					
+				</p:columns>
+				
+				<p:column>
+		           <p:rowEditor />
+		       </p:column>
+		       
+		       <p:column>
+		       <p:commandButton icon="ui-icon-trash"
+		       			onclick="return confirm('Are you sure?');" 
+                        actionListener="#{controller.data.columns.deleteRow(row)}"
+                        ajax="false" />
+		       </p:column>
+			</p:dataTable>
+			
+			</h:form>
+		</h:panelGrid>
+	</h:body>
+</html>

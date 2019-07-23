@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="css/loginStyle.css"></link>
+</h:head>
+
+<h:body>
+
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{controller.login.loadCookie()}" />
+	</f:metadata>
+	
+	
+	<div class="login">
+		<h1>Login to CRUD</h1>
+		<h:form>
+
+			<p>
+				<p:inputText value="#{controller.login.username}"
+					placeholder="Username" />
+			</p>
+			<p>
+				<p:password value="#{controller.login.password}" placeholder="Password" />
+			</p>
+
+			<p>
+				<p:commandButton styleClass="loginButton" value="Login" id="nonAjax" action="#{controller.login.getPage()}" ajax="false" ></p:commandButton>
+			</p>
+
+			<p></p>
+			
+			<!-- Implement cookie holder 
+			<p:growl id="msg" />
+			<h:outputLabel styleClass="label" value="Remember me "></h:outputLabel>
+			<p:selectBooleanCheckbox value="#{controller.checkBox.checkBoxMarked}">
+				<p:ajax update="msg" listener="#{controller.checkBox.addMessage()}" />
+			</p:selectBooleanCheckbox> -->
+
+		</h:form>
+
+		<div class="login-help">
+			<h:outputLabel styleClass="errorLabel" value="#{controller.login.errorMessage}" rendered="#{controller.login.errorLogin}" />
+		</div>
+	</div>
+</h:body>
+</html>

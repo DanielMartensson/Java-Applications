@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PlotDatabase">
+    <output-path>$PROJECT_DIR$/out/artifacts/PlotDatabase</output-path>
+    <root id="archive" name="PlotDatabase.jar">
+      <element id="module-output" name="PlotDatabase" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jars/sqlite-jdbc-3.23.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jars/ini4j-0.5.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jars/mysql-connector-java-5.1.47.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
