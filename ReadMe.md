@@ -168,7 +168,7 @@ The unit:
 This unit can be purchased at https://www.spektrakon.se/
 
 
-# JSUBPlotter
+# JUSBPlotter
 
 This project is a Java and a C project that I have made. The Java project is an JavaFX GUI application that can log 6 analog values in real time with the 16 bit resolution. The C project is an project folder that contains C code for an STM32F401RE Nucleo board.
 
