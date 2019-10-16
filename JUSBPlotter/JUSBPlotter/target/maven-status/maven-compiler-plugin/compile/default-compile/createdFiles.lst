@@ -1,0 +1,9 @@
+org/openjfx/JUSBPlotter/About.class
+org/openjfx/JUSBPlotter/Front.class
+org/openjfx/JUSBPlotter/NewMeasurement.class
+org/openjfx/JUSBPlotter/Connection.class
+org/openjfx/JUSBPlotter/NewConfiguration.class
+org/openjfx/concurrency/Measureing.class
+org/openjfx/JUSBPlotter/Main.class
+org/openjfx/JUSBPlotter/Plot.class
+org/openjfx/JUSBPlotter/Protocol.class

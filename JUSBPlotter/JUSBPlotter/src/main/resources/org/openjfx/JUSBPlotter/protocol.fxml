@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.openjfx.JUSBPlotter.Protocol">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="340.0" minHeight="10.0" prefHeight="340.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TextArea editable="false" prefHeight="80.0" prefWidth="600.0" text="You don't really need an STM32 to log values. You can use an Arduino or other microcontrollers as well, as long you send 14 bytes of data where it contains 6 uint16 ADC values. Have a look at the pseudo C-code below." wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <ImageView fx:id="image0" fitHeight="340.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>
