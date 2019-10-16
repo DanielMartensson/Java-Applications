@@ -174,11 +174,11 @@ This project is a Java and a C project that I have made. The Java project is an 
 
 This project is named JUSBPlotter. J for Java, USB for communication between PC and STM32 and Plotter for the graph.
 
-![](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/Image.png)
+![a](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/Image.png)
 
 This is the Nucleo board. Picture from the Help menu -> About JUSBPlotter, inside JUSBPlotter software.
 
-![](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/src/main/resources/org/openjfx/pictures/stm32.jpg)
+![a](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/JUSBPlotter/src/main/resources/org/openjfx/pictures/stm32.jpg)
 
 
 # How can I use it? 
@@ -204,12 +204,12 @@ When you can run the software, you need to burn in the C-code onto a STM32F401RE
 
 Once that is done, just connect your Nucleo board you your USB port and connect the Nucleo board inside JUSBPlotter. Then start logging values. After you are done with logging values, you just can import the values into GNU Octave.
 
-![](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/load.png)
+![a](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/load.png)
 
 # I don't have a Nucelo board. Can I use my Arduino instead?
 Yes. You can use any microcontroller that have UART-communication. Just send 14 bytes array with data. I post C pseudo code below so you can see the protocol.
 
-![](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/src/main/resources/org/openjfx/pictures/protocol.jpeg)
+![a](https://raw.githubusercontent.com/DanielMartensson/Java-Applications/master/JUSBPlotter/JUSBPlotter/src/main/resources/org/openjfx/pictures/protocol.jpeg)
 
 # I want to work on this project. How can I compile it and run it?
 This is a maven project. You need to use Eclipse IDE and then import the JUSBPlotter folder.
